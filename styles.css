@@ -1,32 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+
 body {
     background-color: #007BFF;
     color: white;
 }
 
-.container {
 
-}
-
-button {
-
-}
-
-.container-image {
-    display:flex;
-    flex-direction: row;
-}
-
-.img {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-}
-
-.container-text {
-    display: flex;
-    flex-direction: row;
-}
-
-#text-1, #text-2 {
-    margin: 20px;
-}
