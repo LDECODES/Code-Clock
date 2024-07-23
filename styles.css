@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
-
 body {
     background-color: #007BFF;
     color: white;
+    font-family: 'Edu AU VIC WA NT Hand', sans-serif;
 }
 
 
