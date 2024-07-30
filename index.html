@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="styles.css">
    
 </head>
-<body> 
-    <div class="container-fluid text-center text-dark">
+<body class="bg-light"> 
+    <div class="container-fluid text-center  text-dark">
         <h1 class="h1">Leon Evans</h1>
-        <div class="row m-2 p-2  justify-content-center">
+        <div class="row p-2  justify-content-center">
             <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active text-dark  m-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Receive Code</button>
@@ -30,7 +30,8 @@
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-lg-6 mx-auto">
                             <div class="input-group mb-3 d-flex justify-content-center">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1">Generate</button>
+                                <button class="btn btn-outline-success" type="button" id="button-addon1">Generate</button>
+                                <button class="btn btn-outline-secondary" type="button">Copy</button>
                                 <input type="text" class="form-control" placeholder="Click Generate button" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             </div>
                         </div>
@@ -41,7 +42,7 @@
                         <div class="col-sm-12 col-lg-6 mx-auto">
                             <div class="input-group mb-3 d-flex justify-content-center">
                                 <input type="text" class="form-control" placeholder="Paste Code" aria-label="Recipient" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+                                <button class="btn btn-outline-primary" type="button" id="button-addon2">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -65,13 +66,29 @@
             <div class="col-md-3 w-25 p-2 border border-dark bg-light text-dark d-flex align-items-center rounded">
                 <input type="text" placeholder="Enter Code Here" class="form-control input-lg">
             </div>
-            -->
+            
         </div>
+
+<ul class="nav nav-pill mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Colour Cards</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Contact Form</button>
+    </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">.....</div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profille" tabindex="0"></div>
+</div>
+
+    
         <div class="row full-width-row m-3 p-8 d-flex justify-content-center  " id="colour-cards">
             
             <div class="col-auto m-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/300" class="card-img-top " alt="">
+                <div class="card bg-dark text-light" style="width: 18rem;">
+                    <img src="https://picsum.photos/500" class="card-img-top " alt="">
                     <div class="card-body">
                         <h5 class="card-title">Green</h5>
                         <p class="card-text">Lorem ipssum odor amet, consectetuer adipiscing elit. Primis neque egestas dictumst; iaculis aliquam non.</p>
@@ -80,8 +97,8 @@
                 </div>
             </div>
             <div class="col-auto m-3 ">
-                <div class="card  " style="width: 18rem;">
-                    <img src="https://picsum.photos/300" class="card-img-top" alt="">
+                <div class="card bg-dark text-light " style="width: 18rem;">
+                    <img src="https://picsum.photos/500" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Red</h5>
                         <p class="card-text">Lorem ipssum odor amet, consectetuer adipiscing elit. Primis neque egestas dictumst; iaculis aliquam non.</p>
@@ -91,8 +108,8 @@
             </div>
             <div class="col-auto m-3">
                 
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/300" class="card-img-top" alt="">
+                <div class="card bg-dark text-light" style="width: 18rem;">
+                    <img src="https://picsum.photos/500" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Grey</h5>
                         <p class="card-text">Lorem ipssum odor amet, consectetuer adipiscing elit. Primis neque egestas dictumst; iaculis aliquam non.</p>
@@ -105,7 +122,7 @@
         
 
         <div class="row  w-100 d-flex justify-content-center">
-            <H1 class="text-center">Contact Form</H1>
+            <H1 class="text-center text-dark">Contact Form</H1>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control m-2" placeholder="Firt Name">
@@ -125,9 +142,16 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button class="btn btn-light m-2 text-dark">Submit</button>
+                <button class="btn btn-outline-primary m-2 text-dark">Submit</button>
             </div>
-        </div>
+        </div>-->
+
+
+
+
+
+
+
             <!-- This is a comment 
 <div class="col-md-3  w-25 p-3 m-3 border border-white bg-light text-dark">
                 <img src="https://place-hold.it/200" alt="idk">
@@ -149,7 +173,7 @@
 -->
 
 <script>
-let cards = document.querySelectorAll('button')
+let cards = document.querySelectorAll('#button')
 
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener("click", function(event) {
