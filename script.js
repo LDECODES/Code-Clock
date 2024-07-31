@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+    let timestamp = document.getElementById('timestamp')
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+      }
+      
+
+    function getGMTTime(date = new Date()) {
+        return [
+          padTo2Digits(date.getUTCHours()),
+          padTo2Digits(date.getUTCMinutes()),
+          padTo2Digits(date.getUTCSeconds()),
+        ].join(':');
+      }
+      
+      
     
     function generate() {
         let length = 6;
@@ -13,9 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
             
         }
         
-        let date = new Date()
-       let utcString = date.toUTCString();
-        localStorage.setItem(result, utcString);
+        let date =  Date.now();;
+        console.log(date)
+        let astString = convert(date);
+        console.log(astString)
+        let last = localStorage.setItem(result, astString);
         console.log(result);
         let life = localStorage.getItem(result); 
         console.log(life)
@@ -26,17 +43,40 @@ document.addEventListener("DOMContentLoaded", function() {
         
         
     }
+
+
+        function convert(timestamp) {
+            let utcDate = timestamp ;
+
+           
+            const options = {
+            timeZone: 'America/St_Lucia', 
+            hour12: true,                
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric'
+            };
+
+            
+            const formatter = new Intl.DateTimeFormat('en-US', options);
+
+            
+            const formattedTime = formatter.format(utcDate);
+            console.log(formattedTime);
+            return formattedTime
+                
+    }
     
 
     function Submit(textareaValue) {
         checkCode = localStorage.getItem(textareaValue);
         if (checkCode == null) {
-            alert("Code not Found")
+            timestamp.textContent = "Code not Found"
         }else {
-            alert(checkCode)
+            timestamp.textContent = `${checkCode}`;
         }
         
-        textareaValue.value = `${checkCode}`;
+       
 
     }
 
@@ -51,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 let textareaValue = document.getElementById("submit-input").value;
                     Submit(textareaValue);
                     break;
+                case "delete" :
+                    localStorage.clear();
+                    break
             }
         });
     });
