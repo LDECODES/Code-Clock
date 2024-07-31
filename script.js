@@ -27,8 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
 
-    function Submit() {
-        
+    function Submit(textareaValue) {
+        checkCode = localStorage.getItem(textareaValue);
+        alert(checkCode)
+        textareaValue.value = `${checkCode}`;
+
     }
 
     document.querySelectorAll('button').forEach(button => {
@@ -39,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     generate();
                     break;
                 case "submit":
-                    Submit();
+                let textareaValue = document.getElementById("submit-input").value;
+                    Submit(textareaValue);
                     break;
             }
         });

@@ -5,3 +5,12 @@ body {
 }
 
 
+@media (max-width: 768px) {
+    .input-group-lg .form-control,
+    .input-group-lg .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
