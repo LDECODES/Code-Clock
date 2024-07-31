@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         let date = new Date()
-        localStorage.setItem(result, date);
+       let utcString = date.toUTCString();
+        localStorage.setItem(result, utcString);
         console.log(result);
         let life = localStorage.getItem(result); 
         console.log(life)
@@ -29,7 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function Submit(textareaValue) {
         checkCode = localStorage.getItem(textareaValue);
-        alert(checkCode)
+        if (checkCode == null) {
+            alert("Code not Found")
+        }else {
+            alert(checkCode)
+        }
+        
         textareaValue.value = `${checkCode}`;
 
     }
