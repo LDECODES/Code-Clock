@@ -1,18 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-    let timestamp = document.getElementById('timestamp')
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-      }
-      
-
-    function getGMTTime(date = new Date()) {
-        return [
-          padTo2Digits(date.getUTCHours()),
-          padTo2Digits(date.getUTCMinutes()),
-          padTo2Digits(date.getUTCSeconds()),
-        ].join(':');
-      }
       
       
     
@@ -28,16 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
             
         }
         
-        let date =  Date.now();;
+        let date =  Date.now();
         console.log(date)
-        let astString = convert(date);
-        console.log(astString)
-        let last = localStorage.setItem(result, astString);
+        localStorage.setItem(result, date);
         console.log(result);
-        let life = localStorage.getItem(result); 
-        console.log(life)
         var input = document.querySelector("#genI");
         input.value = `${result}`;
+        
+
         return result
         
         
@@ -45,27 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-        function convert(timestamp) {
-            let utcDate = timestamp ;
+    function convert(timestamp) {
+        let d = new Date(parseInt(timestamp)); 
+        let text = d.toLocaleTimeString();
+        return text
 
-           
-            const options = {
-            timeZone: 'America/St_Lucia', 
-            hour12: true,                
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric'
-            };
-
-            
-            const formatter = new Intl.DateTimeFormat('en-US', options);
-
-            
-            const formattedTime = formatter.format(utcDate);
-            console.log(formattedTime);
-            return formattedTime
                 
     }
+
     
 
     function Submit(textareaValue) {
@@ -73,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (checkCode == null) {
             timestamp.textContent = "Code not Found"
         }else {
-            timestamp.textContent = `${checkCode}`;
+         let converted = convert(checkCode)
+         timestamp.textContent = `${converted}`
         }
         
        
