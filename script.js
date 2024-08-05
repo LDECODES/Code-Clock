@@ -27,16 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
         
         
     }
-
-
+    
     function convert(timestamp) {
-        let d = new Date(parseInt(timestamp)); 
-        let text = d.toLocaleTimeString();
-        return text
-
-                
+        let d = new Date(parseInt(timestamp));
+        let dateTime = d.toLocaleString();
+        return dateTime;
     }
-
+    
     
 
     function Submit(textareaValue) {
