@@ -30,8 +30,20 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function convert(timestamp) {
         let d = new Date(parseInt(timestamp));
-        let dateTime = d.toLocaleString();
-        return dateTime;
+    
+    let options = { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        hour12: true 
+    };
+
+    let dateTime = d.toLocaleString('en-US', options);
+    let newDateTime = dateTime.replace("at", ",")
+    return newDateTime;
+
     }
     
     
