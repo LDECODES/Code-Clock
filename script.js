@@ -28,23 +28,26 @@ document.addEventListener("DOMContentLoaded", function() {
         
     }
     
+    
     function convert(timestamp) {
         let d = new Date(parseInt(timestamp));
     
-    let options = { 
-        day: 'numeric', 
-        month: 'long', 
-        year: 'numeric', 
-        hour: 'numeric', 
-        minute: 'numeric', 
-        hour12: true 
-    };
-
-    let dateTime = d.toLocaleString('en-US', options);
-    let newDateTime = dateTime.replace("at", ",")
-    return newDateTime;
-
+        let day = d.getDate();
+        let month = d.toLocaleString('en-US', { month: 'long' });
+        let year = d.getFullYear();
+    
+        let hours = d.getHours();
+        let minutes = d.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes; 
+    
+        return `${day} ${month} ${year}, ${hours}:${minutes} ${ampm}`;
     }
+    
+        
+
+    
     
     
 
