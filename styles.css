@@ -1,7 +1,16 @@
 body {
-    background-color: #007BFF;
+    background:white ;
     color: white;
-    font-family: 'Edu AU VIC WA NT Hand', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+@media (max-width: 768px) {
+    .input-group-lg .form-control,
+    .input-group-lg .btn {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 
