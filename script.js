@@ -4,6 +4,7 @@ const SQL = await initSqlJs ({
 })
 const code_clock = new SQL.Database()
 code_clock.run("CREATE TABLE generated_codes (code varchar(100),time BIGINT UNSIGNED);")
+console.log(code_clock)
 
 
 
