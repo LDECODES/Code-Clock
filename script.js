@@ -2,16 +2,13 @@
 const SQL = await initSqlJs ({
     locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
 })
+const code_clock = new SQL.Database()
+code_clock.run("CREATE TABLE generated_codes (code varchar(100),time BIGINT UNSIGNED);")
 
-let db = new SQL.Database()
-
-console.log(db);
 
 
 document.addEventListener("DOMContentLoaded", function() {
      
-      
-    
     function generate() {
         let length = 6;
         let result = '';
