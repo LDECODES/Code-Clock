@@ -1,19 +1,15 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const initSqlJs = window.initSqlJs;
 
-    
-    const response = await fetch('');
-    const buffer = await response.arrayBuffer();
-
 
     const SQL = await initSqlJs({
-        locateFile: file => `node_modules/sql.js/dist/sql-wasm.wasm`
+        locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.wasm`
     });
-    const db = new SQL.Database(new Uint8Array(buffer));
-
+    const db = new SQL.Database();
+    const createTableQuery = `CREATE TABLE users (id INTEGER PRIMARY KEY,name TEXT,email TEXT);`;
+    db.run(createTableQuery)
 
     console.log(db);
-    console.log("hello")
 
     function generate() {
         let length = 6;
