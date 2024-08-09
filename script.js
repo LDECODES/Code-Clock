@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const SQL = await initSqlJs({
         locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.wasm`
     });
-    const db = new SQL.Database();
-    const createTableQuery = `CREATE TABLE users (id INTEGER PRIMARY KEY,name TEXT,email TEXT);`;
+    const db = new SQL.Database(); 
+    const createCodesQuery = `CREATE TABLE  ( id INTEGER PRIMARY KEY,name TEXT,email TEXT);`;
     db.run(createTableQuery)
 
     console.log(db);
@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         let date = Date.now();
         console.log(date);
        
+        const insertQuery = `INSERT INTO codes (code, timestamp) VALUES (?, ?);`;
+        db.run(insertQuery, [result, date]);
+
         localStorage.setItem(result, date);
         console.log(result);
         var input = document.querySelector("#genI");
