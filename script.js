@@ -1,15 +1,16 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const initSqlJs = window.initSqlJs;
 
-
     const SQL = await initSqlJs({
         locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.wasm`
     });
-    const db = new SQL.Database(); 
-    const createCodesQuery = `CREATE TABLE  ( id INTEGER PRIMARY KEY,name TEXT,email TEXT);`;
-    db.run(createTableQuery)
+    const generated_codes = new SQL.Database();
 
-    console.log(db);
+
+    const createCodesQuery = `CREATE TABLE codes (code TEXT, date BIGINT);`;
+    generated_codes.run(createCodesQuery);
+
+    console.log(generated_codes);
 
     function generate() {
         let length = 6;
@@ -25,10 +26,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         let date = Date.now();
         console.log(date);
        
-        const insertQuery = `INSERT INTO codes (code, timestamp) VALUES (?, ?);`;
-        db.run(insertQuery, [result, date]);
-
-        localStorage.setItem(result, date);
+        const insertQuery = `INSERT INTO codes (code, date) VALUES (?, ?);`;
+        generated_codes.run(insertQuery, [result, date]);
+        console.log(generated_codes)
         console.log(result);
         var input = document.querySelector("#genI");
         input.value = `${result}`;
@@ -52,8 +52,22 @@ document.addEventListener("DOMContentLoaded", async function () {
         return `${day} ${month} ${year}, ${hours}:${minutes} ${ampm}`;
     }
 
+    function checkDb(textareaValue) {
+       let checkCode = `SELECT date FROM codes WHERE code = ?;`
+     let  codeValidity = generated_codes.exec(checkCode, [textareaValue])
+
+     if (codeValidity.length > 0) {
+        let date = codeValidity[0].values[0][0]; 
+        return date;
+    } else {
+        return null;
+    }
+    
+       
+    }
+
     function Submit(textareaValue) {
-        let checkCode = localStorage.getItem(textareaValue);
+        let checkCode = checkDb(textareaValue)
         if (checkCode == null) {
             timestamp.textContent = "Code not Found";
         } else {
