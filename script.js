@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    
       
     function generate() {
         let length = 6;
