@@ -1,2 +1,2 @@
 # Logging-Leads
-https://ldecodes.github.io/Logging-Leads/
+https://github.com/LDECODES/Code-Clock
